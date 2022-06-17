@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WeatherMVVM</string>
+    <string name="delete">Удалить</string>
+</resources>
