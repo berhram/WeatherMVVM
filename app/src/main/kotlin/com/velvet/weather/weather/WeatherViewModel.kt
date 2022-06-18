@@ -10,8 +10,8 @@ import com.velvet.weather.weather.domain.WeatherInteractor
 class WeatherViewModel(
     canGoBackCallback: CanGoBack.Callback,
     private val interactor: WeatherInteractor,
-    progressCommunication: ProgressCommunication.Update,
-    communication: OverviewCommunication,
+    private val progressCommunication: ProgressCommunication.Update,
+    communication: WeatherCommunication,
     dispatchers: Dispatchers
 ) : BackPress.ViewModel<WeatherUi>(canGoBackCallback, communication, dispatchers) {
 
@@ -30,7 +30,14 @@ class WeatherViewModel(
         canGoBack = false
         progressCommunication.map(Visibility.Visible())
         handle {
-            interactor.currencies(atFinish) { communication.map(it) }
+            interactor.savedCities(atFinish) { communication.map(it) }
+        }
+    }
+
+    fun refresh() {
+        progressCommunication.map(Visibility.Visible())
+        handle {
+            interactor.refresh(atFinish) { communication.map(it) }
         }
     }
 

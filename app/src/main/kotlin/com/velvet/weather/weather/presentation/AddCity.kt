@@ -2,7 +2,7 @@ package com.velvet.weather.weather.presentation
 
 import com.velvet.weather.weather.data.schemas.City
 
-interface DeleteCity {
+interface AddCity {
 
-    fun deleteCity(city: City)
+    fun addCity(city: City)
 }

@@ -8,7 +8,12 @@ import com.velvet.weather.weather.data.WeatherRepository
 
 interface WeatherInteractor {
 
-    suspend fun currencies(
+    suspend fun savedCities(
+        atFinish: () -> Unit,
+        successful: (WeatherUi) -> Unit
+    )
+
+    suspend fun refresh(
         atFinish: () -> Unit,
         successful: (WeatherUi) -> Unit
     )
@@ -20,12 +25,16 @@ interface WeatherInteractor {
         handleError: HandleError
     ) : Interactor.Abstract(dispatchers, handleError), WeatherInteractor {
 
-        override suspend fun currencies(
+        override suspend fun savedCities(
             atFinish: () -> Unit,
             successful: (WeatherUi) -> Unit,
         ) = handle(successful, atFinish) {
-            val data = repository.cities()
-            return@handle data.map(mapper)
+            return@handle repository.getSaved().map(mapper)
         }
+
+        override suspend fun refresh(atFinish: () -> Unit, successful: (WeatherUi) -> Unit) =
+            handle(successful, atFinish) {
+                return@handle repository.updateWeather().map(mapper)
+            }
     }
 }
