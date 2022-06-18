@@ -3,7 +3,7 @@ package com.velvet.weather.weather.domain
 import com.github.johnnysc.coremvvm.core.Dispatchers
 import com.github.johnnysc.coremvvm.data.HandleError
 import com.github.johnnysc.coremvvm.domain.Interactor
-import com.velvet.weather.weather.WeatherUi
+import com.velvet.weather.weather.presentation.WeatherUi
 import com.velvet.weather.weather.data.WeatherRepository
 
 interface WeatherInteractor {

@@ -1,7 +1,7 @@
 package com.velvet.weather.weather.domain
 
 import com.github.johnnysc.coremvvm.presentation.adapter.ItemUi
-import com.velvet.weather.weather.WeatherUi
+import com.velvet.weather.weather.presentation.WeatherUi
 import com.velvet.weather.weather.data.schemas.City
 import com.velvet.weather.weather.presentation.CityUi
 import com.velvet.weather.weather.presentation.DeleteCity

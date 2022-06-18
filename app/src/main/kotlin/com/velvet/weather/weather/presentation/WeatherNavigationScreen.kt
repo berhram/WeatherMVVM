@@ -1,4 +1,4 @@
-package com.velvet.weather.weather
+package com.velvet.weather.weather.presentation
 
 import com.github.johnnysc.coremvvm.presentation.NavigationScreen
 import com.github.johnnysc.coremvvm.presentation.ShowStrategy

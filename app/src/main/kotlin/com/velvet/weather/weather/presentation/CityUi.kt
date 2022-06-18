@@ -2,7 +2,6 @@ package com.velvet.weather.weather.presentation
 
 import com.github.johnnysc.coremvvm.presentation.adapter.ItemUi
 import com.github.johnnysc.coremvvm.presentation.adapter.MyView
-import com.velvet.weather.weather.UiTypes
 import com.velvet.weather.weather.data.schemas.City
 
 class CityUi(

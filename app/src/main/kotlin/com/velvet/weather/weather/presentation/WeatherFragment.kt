@@ -1,4 +1,4 @@
-package com.velvet.weather.weather
+package com.velvet.weather.weather.presentation
 
 import android.os.Bundle
 import android.view.View

@@ -1,10 +1,10 @@
-package com.velvet.weather
+package com.velvet.weather.addcity
 
 import com.github.johnnysc.coremvvm.presentation.NavigationScreen
 import com.github.johnnysc.coremvvm.presentation.ShowStrategy
 
-class AddPlaceNavigationScreen : NavigationScreen(
+class AddCityNavigationScreen : NavigationScreen(
     id = "AddPlaceNavigationScreen",
-    clasz = AddPlaceFragment::class.java,
+    clasz = AddCityFragment::class.java,
     strategy = ShowStrategy.REPLACE
 )

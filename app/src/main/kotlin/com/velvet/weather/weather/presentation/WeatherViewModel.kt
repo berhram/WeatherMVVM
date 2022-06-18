@@ -1,4 +1,4 @@
-package com.velvet.weather.weather
+package com.velvet.weather.weather.presentation
 
 import com.github.johnnysc.coremvvm.core.Dispatchers
 import com.github.johnnysc.coremvvm.presentation.BackPress
