@@ -2,6 +2,7 @@ package com.velvet.weather.weather.data
 
 import com.github.johnnysc.coremvvm.data.CloudDataSource
 import com.github.johnnysc.coremvvm.data.HandleError
+import com.velvet.weather.Settings.API_KEY
 import com.velvet.weather.weather.data.schemas.City
 import com.velvet.weather.weather.data.schemas.Forecast
 
@@ -10,7 +11,6 @@ interface WeatherCloudDataSource {
     companion object {
 
         private const val EXCLUDED = "minutely, alerts, hourly, daily"
-        private const val API_KEY = "f450d850c69f20b43ce494b45b03a567"
         private const val UNITS = "metric"
     }
 

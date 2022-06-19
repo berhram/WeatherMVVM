@@ -11,6 +11,7 @@ interface WeatherCacheDataSource : AddCity, DeleteCity, GetSavedCities {
     class Base(
         private val savedCities: SavedCities.Mutable
     ) : WeatherCacheDataSource {
+
         override fun addCity(city: City) {
             val list = savedCities.read().toMutableList()
             list.add(city)
