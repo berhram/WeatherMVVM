@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
+import com.github.johnnysc.coremvvm.presentation.NavigationCommunication
 import com.github.johnnysc.coremvvm.sl.CoreModule
 import com.github.johnnysc.coremvvm.sl.DependencyContainer
 import com.github.johnnysc.coremvvm.sl.ProvideViewModel
@@ -16,10 +17,12 @@ class App : Application(), ProvideViewModel {
     override fun onCreate() {
         super.onCreate()
         val coreModule = CoreModule.Base(this)
-        val main = MainDependencyContainer(DependencyContainer.Error(), coreModule)
+        val navigationCommunication = NavigationCommunication.Base()
+        val main = MainDependencyContainer(DependencyContainer.Error(), coreModule, navigationCommunication)
         viewModelsFactory = ViewModelsFactory(
             FeaturesDependencyContainer(
                 context = this,
+                navigationCommunication = navigationCommunication,
                 coreModule = coreModule,
                 dependencyContainer = main
             )

@@ -13,11 +13,16 @@ class MainActivity : BackPress.Activity<MainViewModel>(), ProvideViewModel {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
+
         fragmentFactory = BaseFragmentFactory(R.id.container, supportFragmentManager)
+
         val progress = findViewById<View>(R.id.progress)
 
-        provideViewModel(MainViewModel::class.java, this).apply {
+        val viewModel = provideViewModel(MainViewModel::class.java, this)
+
+        viewModel.apply {
             observeNavigation(this@MainActivity) { navScreen ->
                 fragmentFactory.fragment(navScreen)
             }

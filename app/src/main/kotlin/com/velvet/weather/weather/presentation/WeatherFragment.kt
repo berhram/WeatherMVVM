@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.johnnysc.coremvvm.presentation.BackPress
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.velvet.weather.R
+import com.velvet.weather.adapter.ItemAdapter
 
 class WeatherFragment : BackPress.Fragment<WeatherUi, WeatherViewModel>() {
 
@@ -17,17 +18,17 @@ class WeatherFragment : BackPress.Fragment<WeatherUi, WeatherViewModel>() {
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.overview)
-        val baseAdapter = BaseAdapter()
-        recyclerView.adapter = baseAdapter
+        val adapter = ItemAdapter.Weather()
+        recyclerView.adapter = adapter
 
         val addCityButton = view.findViewById<FloatingActionButton>(R.id.add_city)
-        addCityButton.setOnClickListener {  }
+        addCityButton.setOnClickListener { viewModel.onAddCity() }
 
         val refreshButton = view.findViewById<FloatingActionButton>(R.id.refresh)
         refreshButton.setOnClickListener { viewModel.refresh() }
 
         viewModel.observe(this) { ui ->
-            ui.map(baseAdapter)
+            ui.map(adapter)
         }
     }
 }

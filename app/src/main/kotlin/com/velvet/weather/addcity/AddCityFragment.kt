@@ -8,8 +8,8 @@ import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.github.johnnysc.coremvvm.presentation.BackPress
 import com.velvet.weather.R
+import com.velvet.weather.adapter.ItemAdapter
 import com.velvet.weather.addcity.presentation.AddCityUi
-import com.velvet.weather.weather.presentation.BaseAdapter
 
 class AddCityFragment : BackPress.Fragment<AddCityUi, AddCityViewModel>() {
 
@@ -21,13 +21,11 @@ class AddCityFragment : BackPress.Fragment<AddCityUi, AddCityViewModel>() {
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.suggested)
-        val baseAdapter = BaseAdapter()
-        recyclerView.adapter = baseAdapter
+        val adapter = ItemAdapter.AddCity()
+        recyclerView.adapter = adapter
 
         val searchView = view.findViewById<EditText>(R.id.search)
-        viewModel.search.observe(viewLifecycleOwner) {
-            searchView.setText(it)
-        }
+
         searchView.addTextChangedListener {
             viewModel.input(it.toString())
         }
@@ -38,7 +36,7 @@ class AddCityFragment : BackPress.Fragment<AddCityUi, AddCityViewModel>() {
         }
 
         viewModel.observe(this) { ui ->
-            ui.map(baseAdapter)
+            ui.map(adapter)
         }
     }
 }

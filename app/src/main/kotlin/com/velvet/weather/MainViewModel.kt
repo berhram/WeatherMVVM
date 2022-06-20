@@ -18,8 +18,13 @@ class MainViewModel(
     communication,
     dispatchers
 ) {
+
     private val weatherNavigationScreen = WeatherNavigationScreen()
     private val addPlaceNavigationScreen = AddCityNavigationScreen()
+
+    init {
+        navigationCommunication.map(weatherNavigationScreen)
+    }
 
     fun observeNavigation(owner: LifecycleOwner, observer: Observer<NavigationScreen>) {
         navigationCommunication.observe(owner, observer)
