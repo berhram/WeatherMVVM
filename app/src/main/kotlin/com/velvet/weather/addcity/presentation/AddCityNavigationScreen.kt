@@ -1,4 +1,4 @@
-package com.velvet.weather.addcity
+package com.velvet.weather.addcity.presentation
 
 import com.github.johnnysc.coremvvm.presentation.NavigationScreen
 import com.github.johnnysc.coremvvm.presentation.ShowStrategy

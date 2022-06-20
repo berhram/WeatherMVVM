@@ -4,7 +4,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.github.johnnysc.coremvvm.core.Dispatchers
 import com.github.johnnysc.coremvvm.presentation.*
-import com.velvet.weather.addcity.AddCityNavigationScreen
+import com.velvet.weather.addcity.presentation.AddCityNavigationScreen
 import com.velvet.weather.weather.presentation.WeatherNavigationScreen
 
 class MainViewModel(

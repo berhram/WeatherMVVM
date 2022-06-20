@@ -1,9 +1,8 @@
-package com.velvet.weather.addcity
+package com.velvet.weather.addcity.data
 
 import com.github.johnnysc.coremvvm.data.CloudDataSource
 import com.github.johnnysc.coremvvm.data.HandleError
 import com.velvet.weather.Settings.API_KEY
-import com.velvet.weather.addcity.data.GeoService
 import com.velvet.weather.weather.data.schemas.City
 
 interface GeoCloudDataSource {

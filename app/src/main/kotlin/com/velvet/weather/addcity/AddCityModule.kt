@@ -5,10 +5,12 @@ import com.github.johnnysc.coremvvm.presentation.HandleUiError
 import com.github.johnnysc.coremvvm.sl.CoreModule
 import com.github.johnnysc.coremvvm.sl.Module
 import com.velvet.weather.addcity.data.BaseAddCityRepository
+import com.velvet.weather.addcity.data.GeoCloudDataSource
 import com.velvet.weather.addcity.data.ProvideGeoService
 import com.velvet.weather.addcity.domain.AddCityDomain
 import com.velvet.weather.addcity.domain.AddCityInteractor
 import com.velvet.weather.addcity.presentation.AddCityCommunication
+import com.velvet.weather.addcity.presentation.AddCityViewModel
 import com.velvet.weather.weather.data.*
 
 class AddCityModule(

@@ -1,6 +1,5 @@
 package com.velvet.weather.addcity.data
 
-import com.velvet.weather.addcity.GeoCloudDataSource
 import com.velvet.weather.addcity.domain.AddCityDomain
 import com.velvet.weather.weather.data.WeatherCacheDataSource
 import com.velvet.weather.weather.data.schemas.City

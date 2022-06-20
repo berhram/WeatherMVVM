@@ -2,7 +2,7 @@ package com.velvet.weather.weather.presentation
 
 import com.github.johnnysc.coremvvm.core.Dispatchers
 import com.github.johnnysc.coremvvm.presentation.*
-import com.velvet.weather.addcity.AddCityNavigationScreen
+import com.velvet.weather.addcity.presentation.AddCityNavigationScreen
 import com.velvet.weather.weather.domain.WeatherInteractor
 
 class WeatherViewModel(

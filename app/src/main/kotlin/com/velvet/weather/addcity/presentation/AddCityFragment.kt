@@ -1,4 +1,4 @@
-package com.velvet.weather.addcity
+package com.velvet.weather.addcity.presentation
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.johnnysc.coremvvm.presentation.BackPress
 import com.velvet.weather.R
 import com.velvet.weather.adapter.ItemAdapter
-import com.velvet.weather.addcity.presentation.AddCityUi
 
 class AddCityFragment : BackPress.Fragment<AddCityUi, AddCityViewModel>() {
 

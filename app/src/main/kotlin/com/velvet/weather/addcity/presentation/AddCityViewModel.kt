@@ -1,7 +1,6 @@
-package com.velvet.weather.addcity
+package com.velvet.weather.addcity.presentation
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.github.johnnysc.coremvvm.core.Dispatchers
 import com.github.johnnysc.coremvvm.presentation.BackPress
@@ -9,8 +8,6 @@ import com.github.johnnysc.coremvvm.presentation.CanGoBack
 import com.github.johnnysc.coremvvm.presentation.ProgressCommunication
 import com.github.johnnysc.coremvvm.presentation.Visibility
 import com.velvet.weather.addcity.domain.AddCityInteractor
-import com.velvet.weather.addcity.presentation.AddCityCommunication
-import com.velvet.weather.addcity.presentation.AddCityUi
 
 class AddCityViewModel(
     canGoBackCallback: CanGoBack.Callback,

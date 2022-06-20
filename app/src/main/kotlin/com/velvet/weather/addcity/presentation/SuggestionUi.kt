@@ -1,5 +1,6 @@
 package com.velvet.weather.addcity.presentation
 
+import android.util.Log
 import com.github.johnnysc.coremvvm.presentation.adapter.ItemUi
 import com.github.johnnysc.coremvvm.presentation.adapter.MyView
 import com.velvet.weather.weather.data.schemas.City
@@ -18,7 +19,8 @@ class SuggestionUi(
 
     override fun show(vararg views: MyView) {
         views[0].show(location)
-        views[0].handleClick {
+        views[1].handleClick {
+            Log.d("Test", "${city.name} added")
             addCity.addCity(city)
         }
     }

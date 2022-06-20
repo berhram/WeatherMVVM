@@ -5,5 +5,5 @@ import com.velvet.weather.weather.presentation.AddCity
 
 interface AddCityRepository : AddCity {
 
-    suspend fun getSuggestions(keyword: String) : AddCityDomain
+    suspend fun getSuggestions(keyword: String): AddCityDomain
 }

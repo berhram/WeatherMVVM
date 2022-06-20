@@ -8,7 +8,7 @@ import com.github.johnnysc.coremvvm.sl.CoreModule
 import com.github.johnnysc.coremvvm.sl.DependencyContainer
 import com.github.johnnysc.coremvvm.sl.Module
 import com.velvet.weather.addcity.AddCityModule
-import com.velvet.weather.addcity.AddCityViewModel
+import com.velvet.weather.addcity.presentation.AddCityViewModel
 import com.velvet.weather.weather.data.SavedCities
 import com.velvet.weather.weather.data.WeatherCacheDataSource
 import com.velvet.weather.weather.presentation.WeatherViewModel
