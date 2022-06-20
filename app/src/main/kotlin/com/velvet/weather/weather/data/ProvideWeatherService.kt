@@ -16,6 +16,6 @@ interface ProvideWeatherService {
 
         override fun getService(): WeatherService = service(WeatherService::class.java)
 
-        override fun baseUrl(): String = "https://api.openweathermap.org/geo/1.0/"
+        override fun baseUrl(): String = "https://api.openweathermap.org/data/2.5/"
     }
 }

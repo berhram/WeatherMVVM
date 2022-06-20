@@ -18,10 +18,13 @@ class App : Application(), ProvideViewModel {
         super.onCreate()
         val coreModule = CoreModule.Base(this)
         val navigationCommunication = NavigationCommunication.Base()
-        val main = MainDependencyContainer(DependencyContainer.Error(), coreModule, navigationCommunication)
+        val main = MainDependencyContainer(
+            DependencyContainer.Error(),
+            coreModule,
+            navigationCommunication
+        )
         viewModelsFactory = ViewModelsFactory(
             FeaturesDependencyContainer(
-                context = this,
                 navigationCommunication = navigationCommunication,
                 coreModule = coreModule,
                 dependencyContainer = main

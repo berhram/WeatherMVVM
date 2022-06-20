@@ -2,7 +2,7 @@ package com.velvet.weather
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
-import androidx.room.Room
+import com.github.johnnysc.coremvvm.data.PreferenceDataStore
 import com.github.johnnysc.coremvvm.presentation.NavigationCommunication
 import com.github.johnnysc.coremvvm.sl.CoreModule
 import com.github.johnnysc.coremvvm.sl.DependencyContainer
@@ -14,7 +14,6 @@ import com.velvet.weather.weather.data.WeatherCacheDataSource
 import com.velvet.weather.weather.presentation.WeatherViewModel
 
 class FeaturesDependencyContainer(
-    context: Context,
     private val coreModule: CoreModule,
     private val dependencyContainer: DependencyContainer,
     private val navigationCommunication: NavigationCommunication.Update
@@ -22,8 +21,7 @@ class FeaturesDependencyContainer(
 
     private val cacheDataSource = WeatherCacheDataSource.Base(
         SavedCities.Base(
-            Room.databaseBuilder(context, AppDatabase::class.java, "weather-app-database")
-                .build().cityDao()
+            PreferenceDataStore.Base(coreModule.sharedPreferences(PREFS_KEY))
         )
     )
 
@@ -38,5 +36,9 @@ class FeaturesDependencyContainer(
             navigationCommunication
         )
         else -> dependencyContainer.module(clazz)
+    }
+
+    companion object {
+        private const val PREFS_KEY = "saved cities"
     }
 }

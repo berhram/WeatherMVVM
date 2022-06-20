@@ -13,17 +13,17 @@ interface WeatherCacheDataSource : AddCity, DeleteCity, GetSavedCities {
     ) : WeatherCacheDataSource {
 
         override fun addCity(city: City) {
-            val list = savedCities.read().toMutableList()
-            list.add(city)
+            val list = savedCities.read().toMutableSet()
+            list.add(city.toSaveString())
             savedCities.save(list)
         }
 
         override fun deleteCity(city: City) {
-            savedCities.save(savedCities.read().filter { it != city })
+            savedCities.save(savedCities.read().readToList().filter { it != city }.toSaveSet())
         }
 
         override fun getCities(): List<City> {
-            return savedCities.read()
+            return savedCities.read().readToList()
         }
     }
 }
