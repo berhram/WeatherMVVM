@@ -9,6 +9,7 @@
         android:id="@+id/overview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginHorizontal="20dp"
         tools:listitem="@layout/item_weather"
         tools:itemCount="3"/>
 

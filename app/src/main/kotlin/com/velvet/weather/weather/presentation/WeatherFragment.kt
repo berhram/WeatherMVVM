@@ -17,8 +17,8 @@ class WeatherFragment : BackPress.Fragment<WeatherUi, WeatherViewModel>() {
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.overview)
-        val weatherAdapter = WeatherAdapter()
-        recyclerView.adapter = weatherAdapter
+        val baseAdapter = BaseAdapter()
+        recyclerView.adapter = baseAdapter
 
         val addCityButton = view.findViewById<FloatingActionButton>(R.id.add_city)
         addCityButton.setOnClickListener {  }
@@ -27,7 +27,7 @@ class WeatherFragment : BackPress.Fragment<WeatherUi, WeatherViewModel>() {
         refreshButton.setOnClickListener { viewModel.refresh() }
 
         viewModel.observe(this) { ui ->
-            ui.map(weatherAdapter)
+            ui.map(baseAdapter)
         }
     }
 }

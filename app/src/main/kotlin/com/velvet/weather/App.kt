@@ -17,7 +17,13 @@ class App : Application(), ProvideViewModel {
         super.onCreate()
         val coreModule = CoreModule.Base(this)
         val main = MainDependencyContainer(DependencyContainer.Error(), coreModule)
-        viewModelsFactory = ViewModelsFactory(FeaturesDependencyContainer(coreModule, main))
+        viewModelsFactory = ViewModelsFactory(
+            FeaturesDependencyContainer(
+                context = this,
+                coreModule = coreModule,
+                dependencyContainer = main
+            )
+        )
     }
 
     override fun <T : ViewModel> provideViewModel(clazz: Class<T>, owner: ViewModelStoreOwner): T =

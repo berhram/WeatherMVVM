@@ -1,39 +1,39 @@
 package com.velvet.weather
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
-import com.github.johnnysc.coremvvm.data.PreferenceDataStore
+import androidx.room.Room
 import com.github.johnnysc.coremvvm.sl.CoreModule
 import com.github.johnnysc.coremvvm.sl.DependencyContainer
 import com.github.johnnysc.coremvvm.sl.Module
+import com.velvet.weather.addcity.AddCityModule
+import com.velvet.weather.addcity.AddCityViewModel
+import com.velvet.weather.weather.data.SavedCities
+import com.velvet.weather.weather.data.WeatherCacheDataSource
+import com.velvet.weather.weather.presentation.WeatherViewModel
 
 class FeaturesDependencyContainer(
+    context: Context,
     private val coreModule: CoreModule,
     private val dependencyContainer: DependencyContainer
 ) : DependencyContainer {
 
-//    private val favoritesCacheDataSource = FavoritesCacheDataSource.Base(
-//        FavoriteCurrencies.Base(
-//            PreferenceDataStore.Base(coreModule.sharedPreferences(PREFS_KEY))
-//        )
-//    )
-
-//    private val cache = CurrenciesCache.Base()
+    private val cacheDataSource = WeatherCacheDataSource.Base(
+        SavedCities.Base(
+            Room.databaseBuilder(context, AppDatabase::class.java, "weather-app-database")
+                .build().cityDao()
+        )
+    )
 
     override fun <T : ViewModel> module(clazz: Class<T>): Module<*> = when (clazz) {
-//        CurrenciesViewModel::class.java -> CurrenciesModule(
-//            coreModule,
-//            favoritesCacheDataSource,
-//            cache
-//        )
-//        FavoritesViewModel::class.java -> FavoritesModule(
-//            coreModule,
-//            favoritesCacheDataSource,
-//            cache
-//        )
+        AddCityViewModel::class.java -> AddCityModule(
+            coreModule = coreModule,
+            cacheDataSource = cacheDataSource
+        )
+        WeatherViewModel::class.java -> WeatherModule(
+            coreModule = coreModule,
+            cacheDataSource = cacheDataSource
+        )
         else -> dependencyContainer.module(clazz)
-    }
-
-    companion object {
-        private const val PREFS_KEY = "favorites"
     }
 }
