@@ -1,13 +1,11 @@
-package com.velvet.weather
+package com.velvet.weather.di
 
 import androidx.lifecycle.ViewModel
 import com.github.johnnysc.coremvvm.data.PreferenceDataStore
 import com.github.johnnysc.coremvvm.sl.CoreModule
 import com.github.johnnysc.coremvvm.sl.DependencyContainer
 import com.github.johnnysc.coremvvm.sl.Module
-import com.velvet.weather.di.AddCityModule
 import com.velvet.weather.addcity.presentation.AddCityViewModel
-import com.velvet.weather.di.WeatherModule
 import com.velvet.weather.weather.data.SavedCities
 import com.velvet.weather.weather.data.WeatherCacheDataSource
 import com.velvet.weather.weather.presentation.WeatherViewModel

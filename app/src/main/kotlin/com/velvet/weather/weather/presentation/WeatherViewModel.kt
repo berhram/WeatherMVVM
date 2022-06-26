@@ -2,7 +2,6 @@ package com.velvet.weather.weather.presentation
 
 import com.github.johnnysc.coremvvm.core.Dispatchers
 import com.github.johnnysc.coremvvm.presentation.*
-import com.velvet.weather.addcity.presentation.AddCityNavigationScreen
 import com.velvet.weather.weather.domain.WeatherInteractor
 
 class WeatherViewModel(
@@ -29,14 +28,6 @@ class WeatherViewModel(
         progressCommunication.map(Visibility.Visible())
         handle {
             interactor.savedCities({ refresh() }) { communication.map(it) }
-        }
-    }
-
-    fun getSaved() {
-        canGoBack = false
-        progressCommunication.map(Visibility.Visible())
-        handle {
-            interactor.savedCities(atFinish) { communication.map(it) }
         }
     }
 

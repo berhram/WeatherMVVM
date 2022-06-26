@@ -2,7 +2,6 @@ package com.velvet.weather.di
 
 import com.github.johnnysc.coremvvm.domain.HandleDomainError
 import com.github.johnnysc.coremvvm.presentation.HandleUiError
-import com.github.johnnysc.coremvvm.presentation.NavigationCommunication
 import com.github.johnnysc.coremvvm.sl.CoreModule
 import com.github.johnnysc.coremvvm.sl.Module
 import com.velvet.weather.weather.data.*

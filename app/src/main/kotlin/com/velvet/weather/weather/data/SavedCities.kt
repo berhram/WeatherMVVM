@@ -3,7 +3,6 @@ package com.velvet.weather.weather.data
 import com.github.johnnysc.coremvvm.core.Read
 import com.github.johnnysc.coremvvm.core.Save
 import com.github.johnnysc.coremvvm.data.PreferenceDataStore
-import com.velvet.weather.weather.data.schemas.City
 
 class SavedCities {
 

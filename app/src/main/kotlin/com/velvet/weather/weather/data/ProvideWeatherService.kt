@@ -2,7 +2,6 @@ package com.velvet.weather.weather.data
 
 import com.github.johnnysc.coremvvm.data.MakeService
 import com.github.johnnysc.coremvvm.data.ProvideRetrofitBuilder
-import com.velvet.weather.addcity.data.ProvideGeoService
 
 interface ProvideWeatherService {
 

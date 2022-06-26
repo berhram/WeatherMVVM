@@ -4,12 +4,10 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.github.johnnysc.coremvvm.presentation.NavigationCommunication
 import com.github.johnnysc.coremvvm.sl.CoreModule
 import com.github.johnnysc.coremvvm.sl.DependencyContainer
 import com.github.johnnysc.coremvvm.sl.ProvideViewModel
 import com.github.johnnysc.coremvvm.sl.ViewModelsFactory
-import com.velvet.weather.FeaturesDependencyContainer
 
 class App : Application(), ProvideViewModel {
 
