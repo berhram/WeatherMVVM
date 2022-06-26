@@ -14,7 +14,7 @@ interface WeatherDomain {
 
     fun <T> map(mapper: Mapper<T>): T
 
-    class Base(
+    data class Base(
         private val date: Long?,
         private val list: List<Pair<City, Double?>>
     ) : WeatherDomain {
