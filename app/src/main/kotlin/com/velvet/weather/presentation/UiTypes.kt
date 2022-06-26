@@ -1,4 +1,4 @@
-package com.velvet.weather.weather.presentation
+package com.velvet.weather.presentation
 
 enum class UiTypes(val value: Int) {
     CITY(0),

@@ -5,7 +5,7 @@ import com.github.johnnysc.coremvvm.presentation.adapter.ItemUi
 import com.github.johnnysc.coremvvm.presentation.adapter.MyView
 import com.velvet.weather.weather.data.schemas.City
 import com.velvet.weather.weather.presentation.AddCity
-import com.velvet.weather.weather.presentation.UiTypes
+import com.velvet.weather.presentation.UiTypes
 
 class SuggestionUi(
     private val location: String,

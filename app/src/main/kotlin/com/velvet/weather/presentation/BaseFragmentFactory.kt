@@ -1,4 +1,4 @@
-package com.velvet.weather
+package com.velvet.weather.presentation
 
 import androidx.fragment.app.FragmentManager
 import com.github.johnnysc.coremvvm.presentation.FragmentFactory

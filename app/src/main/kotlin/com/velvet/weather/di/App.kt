@@ -1,4 +1,4 @@
-package com.velvet.weather
+package com.velvet.weather.di
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
@@ -9,6 +9,7 @@ import com.github.johnnysc.coremvvm.sl.CoreModule
 import com.github.johnnysc.coremvvm.sl.DependencyContainer
 import com.github.johnnysc.coremvvm.sl.ProvideViewModel
 import com.github.johnnysc.coremvvm.sl.ViewModelsFactory
+import com.velvet.weather.FeaturesDependencyContainer
 
 class App : Application(), ProvideViewModel {
 
@@ -17,15 +18,12 @@ class App : Application(), ProvideViewModel {
     override fun onCreate() {
         super.onCreate()
         val coreModule = CoreModule.Base(this)
-        val navigationCommunication = NavigationCommunication.Base()
         val main = MainDependencyContainer(
             DependencyContainer.Error(),
             coreModule,
-            navigationCommunication
         )
         viewModelsFactory = ViewModelsFactory(
             FeaturesDependencyContainer(
-                navigationCommunication = navigationCommunication,
                 coreModule = coreModule,
                 dependencyContainer = main
             )

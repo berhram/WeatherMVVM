@@ -1,4 +1,4 @@
-package com.velvet.weather
+package com.velvet.weather.di
 
 import com.github.johnnysc.coremvvm.domain.HandleDomainError
 import com.github.johnnysc.coremvvm.presentation.HandleUiError
@@ -14,7 +14,6 @@ import com.velvet.weather.weather.presentation.WeatherViewModel
 class WeatherModule(
     private val coreModule: CoreModule,
     private val cacheDataSource: WeatherCacheDataSource,
-    private val navigationCommunication: NavigationCommunication.Update
 ) : Module<WeatherViewModel> {
 
     override fun viewModel(): WeatherViewModel {
@@ -41,7 +40,6 @@ class WeatherModule(
             progressCommunication = coreModule.provideProgressCommunication(),
             communication = WeatherCommunication.Base(),
             dispatchers = coreModule.dispatchers(),
-            navigationCommunication = navigationCommunication
         )
     }
 }

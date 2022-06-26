@@ -1,4 +1,4 @@
-package com.velvet.weather
+package com.velvet.weather.presentation
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -18,13 +18,16 @@ class MainViewModel(
     communication,
     dispatchers
 ) {
-
     private val weatherNavigationScreen = WeatherNavigationScreen()
     private val addPlaceNavigationScreen = AddCityNavigationScreen()
 
     init {
-        navigationCommunication.map(weatherNavigationScreen)
+        chooseTab(0)
     }
+
+    fun chooseTab(tabPosition: Int) = navigationCommunication.map(
+        if (tabPosition == 0) weatherNavigationScreen else addPlaceNavigationScreen
+    )
 
     fun observeNavigation(owner: LifecycleOwner, observer: Observer<NavigationScreen>) {
         navigationCommunication.observe(owner, observer)

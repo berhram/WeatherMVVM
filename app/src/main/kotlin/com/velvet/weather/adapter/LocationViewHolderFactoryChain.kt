@@ -6,7 +6,7 @@ import com.github.johnnysc.coremvvm.presentation.adapter.GenericViewHolder
 import com.github.johnnysc.coremvvm.presentation.adapter.ItemUi
 import com.github.johnnysc.coremvvm.presentation.adapter.ViewHolderFactoryChain
 import com.velvet.weather.R
-import com.velvet.weather.weather.presentation.UiTypes
+import com.velvet.weather.presentation.UiTypes
 
 class LocationViewHolderFactoryChain(
     private val viewHolderFactoryChain: ViewHolderFactoryChain<ItemUi>

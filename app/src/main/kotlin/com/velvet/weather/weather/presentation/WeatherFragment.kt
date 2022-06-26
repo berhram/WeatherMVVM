@@ -21,9 +21,6 @@ class WeatherFragment : BackPress.Fragment<WeatherUi, WeatherViewModel>() {
         val adapter = ItemAdapter.Weather()
         recyclerView.adapter = adapter
 
-        val addCityButton = view.findViewById<FloatingActionButton>(R.id.add_city)
-        addCityButton.setOnClickListener { viewModel.onAddCity() }
-
         val refreshButton = view.findViewById<FloatingActionButton>(R.id.refresh)
         refreshButton.setOnClickListener { viewModel.refresh() }
 

@@ -2,6 +2,7 @@ package com.velvet.weather.weather.presentation
 
 import com.github.johnnysc.coremvvm.presentation.adapter.ItemUi
 import com.github.johnnysc.coremvvm.presentation.adapter.MyView
+import com.velvet.weather.presentation.UiTypes
 
 class LastUpdateUi(
     private val date: String

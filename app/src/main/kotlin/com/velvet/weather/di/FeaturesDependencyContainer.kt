@@ -1,14 +1,13 @@
 package com.velvet.weather
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.github.johnnysc.coremvvm.data.PreferenceDataStore
-import com.github.johnnysc.coremvvm.presentation.NavigationCommunication
 import com.github.johnnysc.coremvvm.sl.CoreModule
 import com.github.johnnysc.coremvvm.sl.DependencyContainer
 import com.github.johnnysc.coremvvm.sl.Module
-import com.velvet.weather.addcity.AddCityModule
+import com.velvet.weather.di.AddCityModule
 import com.velvet.weather.addcity.presentation.AddCityViewModel
+import com.velvet.weather.di.WeatherModule
 import com.velvet.weather.weather.data.SavedCities
 import com.velvet.weather.weather.data.WeatherCacheDataSource
 import com.velvet.weather.weather.presentation.WeatherViewModel
@@ -16,7 +15,6 @@ import com.velvet.weather.weather.presentation.WeatherViewModel
 class FeaturesDependencyContainer(
     private val coreModule: CoreModule,
     private val dependencyContainer: DependencyContainer,
-    private val navigationCommunication: NavigationCommunication.Update
 ) : DependencyContainer {
 
     private val cacheDataSource = WeatherCacheDataSource.Base(
@@ -33,7 +31,6 @@ class FeaturesDependencyContainer(
         WeatherViewModel::class.java -> WeatherModule(
             coreModule = coreModule,
             cacheDataSource = cacheDataSource,
-            navigationCommunication
         )
         else -> dependencyContainer.module(clazz)
     }

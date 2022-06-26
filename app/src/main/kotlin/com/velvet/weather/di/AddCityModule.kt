@@ -1,4 +1,4 @@
-package com.velvet.weather.addcity
+package com.velvet.weather.di
 
 import com.github.johnnysc.coremvvm.domain.HandleDomainError
 import com.github.johnnysc.coremvvm.presentation.HandleUiError

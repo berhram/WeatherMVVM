@@ -9,7 +9,6 @@ class WeatherViewModel(
     canGoBackCallback: CanGoBack.Callback,
     private val interactor: WeatherInteractor,
     private val progressCommunication: ProgressCommunication.Update,
-    private val navigationCommunication: NavigationCommunication.Update,
     communication: WeatherCommunication,
     dispatchers: Dispatchers
 ) : BackPress.ViewModel<WeatherUi>(canGoBackCallback, communication, dispatchers) {
@@ -29,19 +28,24 @@ class WeatherViewModel(
         canGoBack = false
         progressCommunication.map(Visibility.Visible())
         handle {
+            interactor.savedCities({ refresh() }) { communication.map(it) }
+        }
+    }
+
+    fun getSaved() {
+        canGoBack = false
+        progressCommunication.map(Visibility.Visible())
+        handle {
             interactor.savedCities(atFinish) { communication.map(it) }
         }
     }
 
     fun refresh() {
+        canGoBack = false
         progressCommunication.map(Visibility.Visible())
         handle {
             interactor.refresh(atFinish) { communication.map(it) }
         }
-    }
-
-    fun onAddCity() {
-        navigationCommunication.map(AddCityNavigationScreen())
     }
 
     override fun updateCallbacks() =
